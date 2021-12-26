@@ -23,6 +23,7 @@ async function getWeather() {
 
   } catch (error) {
     console.log(error);
+    p.textContent = "Is that a real city?";
   }
 }
 
