@@ -1,3 +1,6 @@
-h1 {
-    color: blue;
+#page-container {
+    display: grid;
+    gap: 20px;
+    justify-items: center;
 }
+
