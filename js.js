@@ -28,4 +28,5 @@ async function getWeather() {
 
 function updateWeather(type, temp, city) {
   p.textContent = `${city} is ${temp} degrees. It's ${type} time!`;
+
 }
