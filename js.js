@@ -3,8 +3,19 @@ const p = document.querySelector("p");
 const input = document.querySelector("input");
 const button = document.querySelector("button");
 
-
 button.addEventListener("click", getWeather)
+
+window.addEventListener("keypress", e => {
+    if (e.key != "Enter") {
+        return
+    } else {
+        if (input.value === "") {
+            return
+        } else {
+            getWeather();
+        }
+    }
+})
 
 async function getWeather() {
   const city = input.value;
@@ -23,11 +34,12 @@ async function getWeather() {
 
   } catch (error) {
     console.log(error);
+    input.value = "";
     p.textContent = "Is that a real city?";
   }
 }
 
 function updateWeather(type, temp, city) {
-  p.textContent = `${city} is ${temp} degrees. It's ${type} time!`;
-
+  p.textContent = `${city.charAt(0).toUpperCase() + city.slice(1)} is ${temp} degrees. It's ${type}!`;
+  input.value = "";
 }
